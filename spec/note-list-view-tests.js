@@ -1,17 +1,16 @@
-// import { expect } from "./test"
-
-// import { Note } from "../src/note-model"
 (function(exports) {
   let noteListView
-  let note = new Note('hello')
+  let noteOne = 'Note 1'
+  let noteTwo = 'Note 2'
   let noteList = new NoteList()
-  noteList.addNote(note)
+  noteList.addNote(noteOne)
+  noteList.addNote(noteTwo)
 
 
   function displayNotes() {
     noteListView = new NoteListView(noteList)
     console.log('displayNotes')
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>hello</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual('<ul><li><div>Note 1</div></li><li><div>Note 2</div></li></ul>')
   }
 
   displayNotes()

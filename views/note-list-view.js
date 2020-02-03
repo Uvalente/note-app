@@ -1,12 +1,12 @@
-// import { Note } from "../src/note-model"
-
 (function(exports) {
   function NoteListView(noteList) {
     this.noteList = noteList
   }
 
   NoteListView.prototype.displayNotes = function() {
-    console.log(this.noteList)
+    let notes = this.noteList.viewAll()
+    notes = notes.map(note => '<li><div>'.concat(note.viewNote(), '</div></li>'))
+    return '<ul>'.concat(notes.join(''), '</ul>')
   }
 
   exports.NoteListView = NoteListView
