@@ -5,7 +5,7 @@
 
   NoteListView.prototype.displayNotes = function() {
     let notes = this.noteList.viewAll()
-    notes = notes.map(note => '<li><div>'.concat(note.viewNote(), '</div></li>'))
+    notes = notes.map(note => '<li><div>'.concat(note.viewNote().slice(0,20), '...</div></li>'))
     return '<ul>'.concat(notes.join(''), '</ul>')
   }
 
