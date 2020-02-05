@@ -7,27 +7,30 @@
   noteList.addNote(noteOne)
   noteList.addNote(noteTwo)
 
-
   function displayNotes() {
     noteListView = new NoteListView(noteList)
+    let noteOne = noteList.viewAll()[0]
+    let noteTwo = noteList.viewAll()[1]
     console.log('displayNotes')
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>Note 1...</div></li><li><div>Note 2...</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href="#notes/${noteOne.id}">Note 1...</a></div></li><li><div><a href="#notes/${noteTwo.id}">Note 2...</a></div></li></ul>`)
   }
 
   function displayOneNote() {
     console.log('displayOneNote')
     let singleNoteList = new NoteList()
     singleNoteList.addNote(noteOne)
+    let testNote = singleNoteList.viewAll()[0]
     noteListView = new NoteListView(singleNoteList)
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>Note 1...</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href="#notes/${testNote.id}">Note 1...</a></div></li></ul>`)
   }
 
   function displayFirstTwentyChars() {
     console.log('displayFirstTwentyChars')
     let longNoteList = new NoteList()
     longNoteList.addNote(noteThree)
+    let testNote = longNoteList.viewAll()[0]
     noteListView = new NoteListView(longNoteList)
-    expect(noteListView.displayNotes()).toEqual('<ul><li><div>I am a really long n...</div></li></ul>')
+    expect(noteListView.displayNotes()).toEqual(`<ul><li><div><a href="#notes/${testNote.id}">I am a really long n...</a></div></li></ul>`)
   }
 
 
