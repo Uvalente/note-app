@@ -1,8 +1,8 @@
 (function(exports) {
   let noteListView
-  let noteOne = 'Note 1'
-  let noteTwo = 'Note 2'
-  let noteThree = "I am a really long note, that I don't want to display in full in the homepage. So cut me at 20 chars!"
+  let noteOne = new Note('Note 1')
+  let noteTwo = new Note('Note 2')
+  let noteThree = new Note("I am a really long note, that I don't want to display in full in the homepage. So cut me at 20 chars!")
   let noteList = new NoteList()
   noteList.addNote(noteOne)
   noteList.addNote(noteTwo)

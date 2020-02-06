@@ -7,15 +7,19 @@
     this.noteList.addNote(note)
   }
 
-  NoteController.prototype.displayNotes = function() {
+  NoteController.prototype.displayNotes = function(elementID) {
     let noteListView = new NoteListView(this.noteList)
-    let app = document.getElementById('app')
+    let app = document.getElementById(elementID)
     app.innerHTML = noteListView.displayNotes()
+  }
+
+  NoteController.prototype.redirect = function() {
+    // ##############
   }
  
   exports.NoteController = NoteController
 })(this)
 
- let noteController = new NoteController(new NoteList)
- noteController.addNote('test')
- noteController.displayNotes()
+//  let noteController = new NoteController(new NoteList)
+//  noteController.addNote('test')
+//  noteController.displayNotes('app')
