@@ -2,9 +2,10 @@
   var singleView
 
   function displaySingleNote() {
-    singleView = new SingleView(new Note('Favourite drink: seltzer'))
+    let note = new Note('Favourite drink: seltzer')
+    singleView = new SingleView()
     console.log('displaySingleNote')
-    expect(singleView.display()).toEqual('<div>Favourite drink: seltzer</div>')
+    expect(singleView.display(note)).toEqual('<div>Favourite drink: seltzer</div>')
   }
 
   displaySingleNote()

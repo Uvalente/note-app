@@ -1,10 +1,9 @@
 (function(exports) {
-  function SingleView(note) {
-    this.note = note
+  function SingleView() {
   }
 
-  SingleView.prototype.display = function () {
-    return '<div>'.concat(this.note.viewNote(), '</div>')
+  SingleView.prototype.display = function (note) {
+    return '<div>'.concat(note.viewNote(), '</div>')
   }
 
   exports.SingleView = SingleView

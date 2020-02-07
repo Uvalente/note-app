@@ -3,8 +3,22 @@
 
   function redirectToNotePage () {
     console.log('redirectToNotePage')
-    controller = new NoteController()
-    expect(controller.redirect()).toEqual('BOh')
+
+    let element = document.createElement('div')
+    element.id = 'app'
+    document.body.appendChild(element)
+
+    let note = new Note('test note number 1')
+    controller = new NoteController(new NoteList, new NoteListView, new SingleView)
+    controller.addNote(note)
+    controller.addNote(new Note('terere'))
+    controller.displayNotes('app')
+    
+    document.getElementById(`${note.id}`).click()
+    controller.redirect()
+    expect(location.hash).toEqual(`#notes/${note.id}`)
+    expect(element.innerHTML).toEqual("<div>test note number 1</div>")
+    document.body.removeChild(element)
   }
 
   function changeInnerHTML () {
@@ -12,11 +26,11 @@
     let element = document.createElement('div')
     element.id = 'app'
     document.body.appendChild(element)
-    controller = new NoteController(new NoteList)
+    controller = new NoteController(new NoteList, new NoteListView)
     let note = new Note('test')
     controller.addNote(note)
     controller.displayNotes('app')
-    text = `<ul><li><div><a href="#notes/${note.id}">test...</a></div></li></ul>`
+    text = `<ul><li><div><a href="#notes/${note.id}" id="${note.id}">test...</a></div></li></ul>`
     expect(element.innerHTML).toEqual(text)
     document.body.removeChild(element)
   }
@@ -37,5 +51,5 @@
 
   changeInnerHTML()
   // changeInnerHTML2()
-  // redirectToNotePage()
+  redirectToNotePage()
 })(this)

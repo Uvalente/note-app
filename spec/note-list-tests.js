@@ -16,6 +16,16 @@
     expect(noteList.viewAll()[0]).toBe(new Note)
   }
 
+  function findNote() {
+    noteList = new NoteList()
+    console.log('findNote')
+    note = new Note('note1')
+    noteList.addNote(note)
+    expect(noteList.findNote(note.id)).toBe(new Note)
+    expect(noteList.findNote(note.id).viewNote()).toEqual('note1')
+  }
+
   addNoteToArray()
   viewAllNotes()
+  findNote()
 })(this)
