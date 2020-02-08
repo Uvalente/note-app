@@ -7,16 +7,27 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="app">hello</div>
   <form action="#notes" method="POST" id="text">
     <textarea rows="5" cols="33" placeholder="Insert a note here..."></textarea>
     <input type="submit" value="Add Note">
   </form>
+  
+  <div id="app">hello</div>
+
+  <button onclick="goBack()">Go Back</button>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 
   <script src="src/note-model.js"></script>
   <script src="src/note-list-model.js"></script>
   <script src='views/note-list-view.js'></script>
+  <script src="views/single-note-view.js"></script>
   <script src='controller/note-controller.js'></script>
+
   
 </body>
 </html>

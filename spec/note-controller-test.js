@@ -19,7 +19,7 @@
     document.getElementById(`${note.id}`).click()
     expect(location.hash).toEqual(`#notes/${note.id}`)
     expect(element.innerHTML).toEqual("<div>test note number 1</div>")
-    // document.body.removeChild(element)
+    document.body.removeChild(element)
   }
 
   function changeInnerHTML () {
